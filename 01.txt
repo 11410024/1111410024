@@ -1,0 +1,39 @@
+#include <iostream>
+#define N 1000000
+float z()
+{
+    float sum = 0;
+    for (int i = 0; i < 12; i++)sum += rand() * 1.0 / RAND_MAX;
+    return sum - 6.0;
+}
+int main()
+{
+    srand(time(NULL)); rand();
+    float n = 0;
+    
+    for (int i = 0; i < N; i++)
+    {
+        float mmax = 0;
+        float mmin = 10000000;
+        float mmo = 0;
+        float h = 0;
+        float j = 0;
+        for (int k=0; k < 5; k++)
+        {
+            float x = 170.0 + z() * 2.0;
+            if (x > mmax)mmax = x;
+
+
+            if (x < mmin)mmin = x;
+            if ( x < mmax&&x>mmin)mmax = x;
+            
+          
+            
+            
+        }
+        
+        if (mmax -mmin >5)n++;
+    }
+   
+    std::cout<<n/N << "\n ";
+}
